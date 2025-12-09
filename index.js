@@ -5,8 +5,10 @@ import { requestLogger } from "./middlewares/logger.middleware.js";
 const app = express();
 const port = 5000;
 
-app.use(requestLogger);
+app.use(express.json());
 app.use(appRoutes);
+app.use(requestLogger);
+
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
